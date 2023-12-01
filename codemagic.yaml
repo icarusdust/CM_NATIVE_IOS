@@ -11,36 +11,27 @@ workflows:
 #           XCODE_SCHEME: "native_ios_app" # <-- Put the name of your scheme here.
           BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
+          APP_ID: "6473636517"
         xcode: 15.0
         ios_signing:
             distribution_type: app_store # or: ad_hoc | development | enterprise
-            bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS
-      
+            bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
       scripts:
-
         - name: Pod inst
           script: |
-              echo $NPM_RC
               pod install
-#         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
-#           script: |
-#             keychain initialize
-# #      until docker system info > /dev/null 2>&1; do sleep 1; done
-#         - name: Fetch signing files
-#           script: |
-#             app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
-#             app-store-connect fetch-signing-files com.mars.native-ios-appUITests.xctrunner --type IOS_APP_STORE --create
-        # - name: Use system default keychain
-        #   script: |
-        #     keychain add-certificates
         - name: Set up code signing settings on Xcode project
           script: |
-             xcode-project use-profiles
-        
+             xcode-project use-profiles      
+        - name: Increment build number
+          script: |
+            #!/bin/sh
+            cd $CM_BUILD_DIR
+            LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
+            agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))  
         - name: Build ipa for distribution
           script: |
             xcode-project build-ipa --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
-
       artifacts:
         - build/ios/ipa/*.ipa
 #         - build/ios/ipa/bullet.ipa
