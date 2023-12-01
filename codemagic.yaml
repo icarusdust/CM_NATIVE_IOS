@@ -6,7 +6,7 @@ workflows:
         app_store_connect: CM_NEVERCODE
       environment:
         vars:
-          XCODE_WORKSPACE: "CM-NATIVE-IOS.xcodeproj" # <-- Put the name of your workspace here.
+          XCODE_WORKSPACE: "CM-NATIVE-IOS.xcworkspace" # <-- Put the name of your workspace here.
           # XCODE_PROJECT: "native_ios_app.xcodeproj"
 #           XCODE_SCHEME: "native_ios_app" # <-- Put the name of your scheme here.
           BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
