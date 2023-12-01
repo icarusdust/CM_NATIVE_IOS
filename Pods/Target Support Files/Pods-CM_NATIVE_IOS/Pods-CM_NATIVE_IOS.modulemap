@@ -1,0 +1,6 @@
+framework module Pods_CM_NATIVE_IOS {
+  umbrella header "Pods-CM_NATIVE_IOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
