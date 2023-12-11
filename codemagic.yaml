@@ -29,7 +29,8 @@ workflows:
             xcode-project run-tests \
               --workspace CM_NATIVE_IOS.xcworkspace \
               --scheme CM_NATIVE_IOS \
-              --device "iPhone 11"
+              --device "iPhone 11" \
+              --output-dir build/ios/test
           test_report: build/ios/test/*.xml
         - name: Increment build number
           script: |
