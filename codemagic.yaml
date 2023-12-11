@@ -13,7 +13,7 @@ workflows:
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
           APP_ID: "6473636517"
           xcode: 14.2
-        xcode: 15.0
+        xcode: 14.3
         ios_signing:
             distribution_type: app_store # or: ad_hoc | development | enterprise
             bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
@@ -29,7 +29,7 @@ workflows:
             xcode-project run-tests \
               --workspace CM_NATIVE_IOS.xcworkspace \
               --scheme CM_NATIVE_IOS \
-              --device "iPhone 14"
+              --device "iPhone 11"
           test_report: build/ios/test/*.xml
         - name: Increment build number
           script: |
