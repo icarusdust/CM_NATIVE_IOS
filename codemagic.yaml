@@ -43,6 +43,7 @@ workflows:
       artifacts:
         - build/ios/ipa/*.ipa
 #         - build/ios/ipa/bullet.ipa
+        - build/ios/test/*.xml
         - /tmp/xcodebuild_logs/*.log
 #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
