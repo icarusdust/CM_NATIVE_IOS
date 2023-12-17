@@ -3,7 +3,7 @@ workflows:
       name: ios_workflow
       instance_type: mac_mini_m1
       integrations:
-        app_store_connect: CM_NEVERCODE
+        app_store_connect: Codemagic
       environment:
         groups: 
          - ios
