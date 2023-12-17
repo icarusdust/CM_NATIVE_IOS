@@ -5,6 +5,8 @@ workflows:
       integrations:
         app_store_connect: CM_NEVERCODE
       environment:
+        groups: 
+         - ios
         vars:
           XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" # <-- Put the name of your workspace here.
           # XCODE_PROJECT: "native_ios_app.xcodeproj"
