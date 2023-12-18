@@ -2,11 +2,12 @@ workflows:
     ios-workflow:
       name: ios_workflow
       instance_type: mac_mini_m1
-      integrations:
-        app_store_connect: Codemagic
+      # integrations:
+      #   app_store_connect: Codemagic
       environment:
         groups: 
          - ios
+         - firebase_creds
         vars:
           XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" # <-- Put the name of your workspace here.
           # XCODE_PROJECT: "native_ios_app.xcodeproj"
@@ -60,5 +61,10 @@ workflows:
 #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
       publishing:
-        app_store_connect:
-          auth: integration
+        # app_store_connect:
+        #   auth: integration
+        firebase:
+            firebase_service_account: $FIREBASE_SERVICE_ACCOUNT        
+            ios:
+              app_id: 1:608315409963:ios:7d468bb148397aa50f8c6e 
+                - mars
