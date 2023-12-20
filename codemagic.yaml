@@ -63,12 +63,12 @@ workflows:
         - /tmp/xcodebuild_logs/*.log
 #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
-      publishing:
-        # app_store_connect:
-        #   auth: integration
-        firebase:
-            firebase_token: $FIREBASE_TOKEN
-            # firebase_service_account: $FIREBASE_SERVICE_ACCOUNT        
-            ios:
-              app_id: 1:608315409963:ios:7d468bb148397aa50f8c6e 
-                - mars
+      # publishing:
+      #   # app_store_connect:
+      #   #   auth: integration
+      #   firebase:
+      #       firebase_token: $FIREBASE_TOKEN
+      #       # firebase_service_account: $FIREBASE_SERVICE_ACCOUNT        
+      #       ios:
+      #         app_id: 1:608315409963:ios:7d468bb148397aa50f8c6e 
+      #           - mars
