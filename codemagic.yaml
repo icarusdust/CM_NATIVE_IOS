@@ -55,9 +55,10 @@ workflows:
             xcode-project build-ipa --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
         - name: Export artifact az zip
           script: |
-            cp -r $CM_BUILD_DIR/build/ios/ipa/*.ipa $CM_EXPORT_DIR/build/ios/ipa/*.ipa
+            cp -r $CM_BUILD_DIR/build/ios/ipa/*.ipa $CM_EXPORT_DIR/artefact
       artifacts:
         - build/ios/ipa/*.ipa
+        - $CM_EXPORT_DIR/artefact
 #         - build/ios/ipa/bullet.ipa
         - build/ios/test/*.xml
         - /tmp/xcodebuild_logs/*.log
