@@ -64,7 +64,13 @@ workflows:
         - /tmp/xcodebuild_logs/*.log
 #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
-      # publishing:
+      publishing:
+       email:
+        recipients:
+          - nihal@nevercode.io
+        notify:
+          success: true
+          failure: false
       #   # app_store_connect:
       #   #   auth: integration
       #   firebase:
