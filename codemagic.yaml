@@ -23,7 +23,7 @@ workflows:
       scripts:
         - name: Change description value
           script: |
-            sed -i 's/sdsd/new-text/g' release_notes.json
+            sed -i.bak -e 's/sdsd/new-text/g' release_notes.json
         - name: Pod inst
           script: |
               pod install
