@@ -21,6 +21,9 @@ workflows:
         #     distribution_type: app_store # or: ad_hoc | development | enterprise
         #     bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
       scripts:
+        - name: Change description value
+          script: |
+            sed -i 's/sdsd/new-text/g' release_notes.json
         - name: Pod inst
           script: |
               pod install
