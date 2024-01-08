@@ -15,6 +15,7 @@ workflows:
           BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
           APP_ID: "6473636517"
+          APP_DESCRIPTION: $APP_DESCRIPTION
           xcode: 14.2
         xcode: 15.1
         # ios_signing:
