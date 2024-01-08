@@ -23,7 +23,7 @@ workflows:
       scripts:
         - name: Change description value
           script: |
-            sed -i.bak -e 's/"text":.*/"text":"${APP_DESCRIPTION\"/g' release_notes.json
+            sed -i.bak -e 's/"text":.*/"text":"$APP_DESCRIPTION\"/g' release_notes.json
         - name: Pod inst
           script: |
               echo $APP_DESCRIPTION
