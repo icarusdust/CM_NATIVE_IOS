@@ -26,6 +26,7 @@ workflows:
             sed -i.bak -e 's/"text":.*/"text":\"${APP_DESCRIPTION}\"/g' release_notes.json
         - name: Pod inst
           script: |
+              echo $APP_DESCRIPTION
               pod install
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
           script: |
