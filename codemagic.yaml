@@ -25,7 +25,7 @@ workflows:
           script: |
             echo $APP_DESCRIPTION
             release_notes=$(cat release_notes.json)
-            text=$(echo $release_notes | jq '.[]'.text)
+            text=$(echo $release_notes | jq '.[].text')
             updated_text=$(echo $text | sed 's/"$text"/"$APP_DESCRIPTION"/g')
             modified_notes=$(echo $release_notes | sed "s/"$text"/"$updated_title"/g")
             echo $modified_notes > release_notes.json 
