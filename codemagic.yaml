@@ -21,15 +21,15 @@ workflows:
         #     distribution_type: app_store # or: ad_hoc | development | enterprise
         #     bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
       scripts:
-        - name: Change description value
-          script: |
-            echo $APP_DESCRIPTION
-            release_notes=$(cat release_notes.json)
-            text=$(echo $release_notes | jq '.[].text')
-            updated_text=$(echo $text | sed 's/"$text"/"$APP_DESCRIPTION"/g')
-            modified_notes=$(echo $release_notes | sed "s/"$text"/"$updated_title"/g")
-            echo $modified_notes > release_notes.json 
-            echo $APP_DESCRIPTION
+        # - name: Change description value
+        #   script: |
+        #     echo $APP_DESCRIPTION
+        #     release_notes=$(cat release_notes.json)
+        #     text=$(echo $release_notes | jq '.[].text')
+        #     updated_text=$(echo $text | sed 's/"$text"/"$APP_DESCRIPTION"/g')
+        #     modified_notes=$(echo $release_notes | sed "s/"$text"/"$updated_title"/g")
+        #     echo $modified_notes > release_notes.json 
+        #     echo $APP_DESCRIPTION
      # APP_DESCRIPTION="hi there"
      # sed -i.bak -e 's/"text":.*/"text":\"$APP_DESCRIPTION\"/g' release_notes.json
         - name: Pod inst
