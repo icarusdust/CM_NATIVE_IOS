@@ -24,7 +24,7 @@ workflows:
         - name: Change description value
           script: |
             text="hit there"
-            sed -i '' -e "s|\("text" : "\).*\('\)|\1$text\2|" release_notes.json
+            sed -i '' -e "s|\("text" : "1$text|" release_notes.json
      # sed -i.bak -e 's/"text":.*/"text":"$APP_DESCRIPTION\"/g' release_notes.json
         - name: Pod inst
           script: |
