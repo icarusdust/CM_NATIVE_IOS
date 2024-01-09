@@ -22,8 +22,9 @@ workflows:
         #     bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
       scripts:
         - name: Change description value
-          script: |
-            sed -i.bak -e 's/"text":.*/"text":"$APP_DESCRIPTION\"/g' release_notes.json
+            new_sha256="hit there"
+            sed -i '' -e "s|\("text" : "\).*\('\)|\1$new_sha256\2|" release_notes.json
+            # sed -i.bak -e 's/"text":.*/"text":"$APP_DESCRIPTION\"/g' release_notes.json
         - name: Pod inst
           script: |
               echo $APP_DESCRIPTION
