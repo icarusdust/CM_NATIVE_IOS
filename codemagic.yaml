@@ -95,7 +95,6 @@ workflows:
         scripts:
           - name: Status check
             script: |
-               script: | 
                    PUBLISHING_STATUS=$(curl -H "Content-Type: application/json" \
                      -H "x-auth-token: UjW3noRBwGnyBlOOfHhc8suwuNZmhT4XP7SaeXV-Z7c" \
                      --request GET https://api.codemagic.io/builds/$CM_BUILD_ID | jq '.build.buildActions[] | select (.type == "publishing") | .status')
