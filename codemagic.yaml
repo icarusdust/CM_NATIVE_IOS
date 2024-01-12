@@ -92,6 +92,18 @@ workflows:
           submit_to_testflight: true
           beta_groups: 
               - mars
+        scripts:
+          - name: Status check
+            script: |
+               script: | 
+                   PUBLISHING_STATUS=$(curl -H "Content-Type: application/json" \
+                     -H "x-auth-token: UjW3noRBwGnyBlOOfHhc8suwuNZmhT4XP7SaeXV-Z7c" \
+                     --request GET https://api.codemagic.io/builds/$CM_BUILD_ID | jq '.build.buildActions[] | select (.type == "publishing") | .status')
+                      if [ "$PUBLISHING_STATUS" == "success" ] ; then
+                           echo "all good"
+                     else
+                           # do what you want on failure
+                          echo "not good"
       #   firebase:
       #       firebase_token: $FIREBASE_TOKEN
       #       # firebase_service_account: $FIREBASE_SERVICE_ACCOUNT        
