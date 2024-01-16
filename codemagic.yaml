@@ -92,7 +92,6 @@ workflows:
           submit_to_testflight: true
           beta_groups: 
               - mars
-              - suppa
         # scripts:
         #   - name: Status check
         #     script: |        
