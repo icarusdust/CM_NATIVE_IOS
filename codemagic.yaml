@@ -60,12 +60,12 @@ workflows:
         #       --device "iPhone 13" \
         #       --output-dir build/ios/test
         #   test_report: build/ios/test/*.xml
-        - name: Increment build number
-          script: |
-            #!/bin/sh
-            cd $CM_BUILD_DIR
-            LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
-            agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))  
+        # - name: Increment build number
+        #   script: |
+        #     #!/bin/sh
+        #     cd $CM_BUILD_DIR
+        #     LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
+        #     agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))  
         - name: Build ipa for distribution
           script: |
             xcode-project build-ipa --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
