@@ -1,6 +1,12 @@
 [
     {
         "language": "en-US",
-        "text": "sdsd"
+        "text": "British English release notes text",
+        "description": "Updated app description", 
+        "keywords": "keyword, other keyword", 
+        "promotional_text": "Promotional text", 
+        "marketing_url": "https://example.com", 
+        "support_url": "https://example.com",
+        "copyright": "20224 Nevercode Ltd"
     }
 ]
