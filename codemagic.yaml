@@ -23,7 +23,7 @@ workflows:
       scripts:
         - name: Enable capability
           script: | 
-            app-store-connect bundle-ids enable-capabilities VFU6JUH2M8 --capability=HomeKit
+            app-store-connect bundle-ids enable-capabilities VFU6JUH2M8 --capability "NFC Tag Reading"
         - name: Change description value
           script: |
            sed -i.bak 's/"text":.*/"text":"'"$APP_DESCRIPTION"'"/g' release_notes.json
