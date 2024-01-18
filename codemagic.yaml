@@ -17,17 +17,17 @@ workflows:
           APP_ID: "6473636517"
           xcode: 14.2
         xcode: 15.1
-        unity: 2022.3.17f1
+        # unity: 2022.3.17f1
         # ios_signing:
         #     distribution_type: app_store # or: ad_hoc | development | enterprise
         #     bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
       scripts:
-        - name: Enable capability
-          script: | 
-            app-store-connect bundle-ids enable-capabilities VFU6JUH2M8 --capability "NFC Tag Reading"
-        - name: Change description value
-          script: |
-           sed -i.bak 's/"text":.*/"text":"'"$APP_DESCRIPTION"'"/g' release_notes.json
+        # - name: Enable capability
+        #   script: | 
+        #     app-store-connect bundle-ids enable-capabilities VFU6JUH2M8 --capability "NFC Tag Reading"
+        # - name: Change description value
+        #   script: |
+        #    sed -i.bak 's/"text":.*/"text":"'"$APP_DESCRIPTION"'"/g' release_notes.json
         # echo $APP_DESCRIPTION
         # release_notes=$(cat release_notes.json)
         # echo $release_notes
@@ -93,9 +93,10 @@ workflows:
        #    failure: false
         app_store_connect:
           auth: integration
-          submit_to_testflight: true
-          beta_groups: 
-              - mars
+          submit_to_app_store: true
+          # submit_to_testflight: true
+          # beta_groups: 
+          #     - mars
         # scripts:
         #   - name: Status check
         #     script: |        
