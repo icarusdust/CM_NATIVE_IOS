@@ -16,7 +16,7 @@ workflows:
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
           APP_ID: "6473636517"
           xcode: 14.2
-        xcode: 15.1
+        xcode: 15.2
         # unity: 2022.3.17f1
         # ios_signing:
         #     distribution_type: app_store # or: ad_hoc | development | enterprise
