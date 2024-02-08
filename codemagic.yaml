@@ -40,11 +40,11 @@ workflows:
         #     echo $APP_DESCRIPTION
      # APP_DESCRIPTION="hi there"
      # sed -i.bak -e 's/"text":.*/"text":\"$APP_DESCRIPTION\"/g' release_notes.json
-        - name: Appium
-          script: |
-            appium -v
-            npm install appium
-            appium -v
+        # - name: Appium
+        #   script: |
+        #     appium -v
+        #     npm install appium
+        #     appium -v
         - name: Pod inst
           script: |
               echo $APP_DESCRIPTION
@@ -61,14 +61,14 @@ workflows:
         - name: Set up code signing settings on Xcode project
           script: |
              xcode-project use-profiles      
-        - name: Xcodebuild testing
-          script: |
-            xcodebuild \
-              -workspace CM_NATIVE_IOS.xcworkspace \
-              -scheme CM_NATIVE_IOS \
-              -derivedDataPath "../build/ios_integ" \
-              -sdk iphoneos17.2 \
-              build-for-testing
+        # - name: Xcodebuild testing
+        #   script: |
+        #     xcodebuild \
+        #       -workspace CM_NATIVE_IOS.xcworkspace \
+        #       -scheme CM_NATIVE_IOS \
+        #       -derivedDataPath "../build/ios_integ" \
+        #       -sdk iphoneos17.2 \
+        #       build-for-testing
         # - name: iOS test
         #   script: | 
         #     xcode-project run-tests \
