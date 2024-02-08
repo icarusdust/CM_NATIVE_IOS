@@ -40,6 +40,11 @@ workflows:
         #     echo $APP_DESCRIPTION
      # APP_DESCRIPTION="hi there"
      # sed -i.bak -e 's/"text":.*/"text":\"$APP_DESCRIPTION\"/g' release_notes.json
+        - name: Appium
+          script: |
+            appium -v
+            npm install appium
+            appium -v
         - name: Pod inst
           script: |
               echo $APP_DESCRIPTION
