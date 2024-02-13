@@ -97,12 +97,9 @@ workflows:
 #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
       publishing:
-       email:
-        recipients:
-          - nihal@nevercode.io
-       #  notify:
-       #    success: true
-       #    failure: false
+        email:
+         recipients:
+           - nihal@nevercode.io
         app_store_connect:
           auth: integration
           submit_to_testflight: true
