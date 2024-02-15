@@ -104,8 +104,8 @@ workflows:
           auth: integration
         
           submit_to_testflight: true
-          # beta_groups: 
-          #     - mars
+          beta_groups: 
+              - mars
         # scripts:
         #   - name: Status check
         #     script: |        
