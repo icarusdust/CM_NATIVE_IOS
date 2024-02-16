@@ -7,6 +7,7 @@ workflows:
       environment:
         groups: 
          - ios
+         - test
          - firebase_creds
         vars:
           XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" # <-- Put the name of your workspace here.
@@ -16,7 +17,7 @@ workflows:
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
           APP_ID: "6473636517"
           xcode: 14.2
-          CUSTOMER_ID: $CLIENT_ID
+          CUSTOMER_ID: $TEST
         xcode: 15.2
         # unity: 2022.3.17f1
         # ios_signing:
