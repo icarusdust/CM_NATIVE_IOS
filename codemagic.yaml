@@ -50,6 +50,7 @@ workflows:
         
         - name: Pod inst
           script: |
+              echo $TEST
               echo $CUSTOMER_ID
               rm -rf ~/Library/Caches/CocoaPods Pods ~/Library/Developer/Xcode/DerivedData && pod deintegrate && pod install
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
