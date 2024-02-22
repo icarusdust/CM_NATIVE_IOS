@@ -18,7 +18,6 @@ workflows:
       scripts:
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
           script: |
-            echo $TOKEN
             keychain initialize
         - name: Fetch signing files
           script: |
