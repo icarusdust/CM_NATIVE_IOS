@@ -10,49 +10,12 @@ workflows:
          - test
          - firebase_creds
         vars:
-          XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" # <-- Put the name of your workspace here.
-          # XCODE_PROJECT: "native_ios_app.xcodeproj"
-#           XCODE_SCHEME: "native_ios_app" # <-- Put the name of your scheme here.
+          XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" 
           BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
           APP_ID: "6473636517"
-          xcode: 14.2
-          CUSTOMER_ID: $TEST
-        xcode: 15.2
-        # unity: 2022.3.17f1
-        # ios_signing:
-        #     distribution_type: app_store # or: ad_hoc | development | enterprise
-        #     bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS   
+        xcode: latest
       scripts:
-        # - name: Enable capability
-        #   script: | 
-        #     app-store-connect bundle-ids enable-capabilities VFU6JUH2M8 --capability "NFC Tag Reading"
-        # - name: Change description value
-        #   script: |
-        #    sed -i.bak 's/"text":.*/"text":"'"$APP_DESCRIPTION"'"/g' release_notes.json
-        # echo $APP_DESCRIPTION
-        # release_notes=$(cat release_notes.json)
-        # echo $release_notes
-        # text=$(echo $release_notes | jq '.[].text')
-        # echo $text
-
-        #     updated_text=$(echo $text | sed 's/"$text"/"$APP_DESCRIPTION"/g')
-        #     modified_notes=$(echo $release_notes | sed "s/"$text"/"$updated_title"/g")
-        #     echo $modified_notes > release_notes.json 
-        #     echo $APP_DESCRIPTION
-     # APP_DESCRIPTION="hi there"
-     # sed -i.bak -e 's/"text":.*/"text":\"$APP_DESCRIPTION\"/g' release_notes.json
-        # - name: Appium
-        #   script: |
-        #     appium -v
-        #     npm install appium
-        #     appium -v
-        
-        - name: Pod inst
-          script: |
-              echo $TEST
-              echo $CUSTOMER_ID
-              rm -rf ~/Library/Caches/CocoaPods Pods ~/Library/Developer/Xcode/DerivedData && pod deintegrate && pod install
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
           script: |
             echo $TOKEN
@@ -66,21 +29,6 @@ workflows:
         - name: Set up code signing settings on Xcode project
           script: |
              xcode-project use-profiles      
-        # - name: Xcodebuild testing
-        #   script: |
-        #     xcodebuild \
-        #       -workspace CM_NATIVE_IOS.xcworkspace \
-        #       -scheme CM_NATIVE_IOS \
-        #       -derivedDataPath "../build/ios_integ" \
-        #       -sdk iphoneos17.2 \
-        #       build-for-testing
-        # - name: iOS test
-        #   script: | 
-        #     xcode-project run-tests \
-        #       --workspace CM_NATIVE_IOS.xcworkspace \
-        #       --scheme CM_NATIVE_IOS \
-        #       --device "iPhone 13" 
-        #   test_report: build/ios/test/*.xml
         - name: Increment build number
           script: |
             #!/bin/sh
@@ -111,22 +59,4 @@ workflows:
           submit_to_testflight: true
           beta_groups: 
               - mars
-        # scripts:
-        #   - name: Status check
-        #     script: |        
-        #      PUBLISHING_STATUS=$(curl -H "Content-Type: application/json" \
-        #           -H "x-auth-token: UjW3noRBwGnyBlOOfHhc8suwuNZmhT4XP7SaeXV-Z7c" \
-        #           --request GET https://api.codemagic.io/builds/$CM_BUILD_ID | jq '.build.buildActions[] | select (.type == "publishing") | .status')
-
-        #               if [ "$PUBLISHING_STATUS" == "success" ] ; then
-        #                    echo "all good"
-        #              else
-        #                    # do what you want on failure
-        #                   echo "not good"
-        #              fi
-      #   firebase:
-      #       firebase_token: $FIREBASE_TOKEN
-      #       # firebase_service_account: $FIREBASE_SERVICE_ACCOUNT        
-      #       ios:
-      #         app_id: 1:608315409963:ios:7d468bb148397aa50f8c6e 
-      #           - mars
+    
