@@ -21,7 +21,7 @@ workflows:
         branch_patterns:
           - pattern: 'main'
             include: true
-            source: false
+            source: true
       scripts:
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
           script: |
