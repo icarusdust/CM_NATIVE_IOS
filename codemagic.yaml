@@ -19,7 +19,7 @@ workflows:
         events:
           - pull_request
         branch_patterns:
-          - pattern: 'main'
+          - pattern: 'test'
             include: true
             source: true
       scripts:
