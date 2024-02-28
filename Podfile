@@ -7,7 +7,7 @@ target 'CM_NATIVE_IOS' do
 
   # Pods for CM_NATIVE_IOS
 
-  target 'CM_NATIVE_IOSTests' do
+  target 'CM_NATIVE_IOSTests'
     inherit! :search_paths
     # Pods for testing
   end
