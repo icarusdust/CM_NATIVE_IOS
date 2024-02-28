@@ -19,6 +19,7 @@ workflows:
         events:
           - pull_request
         branch_patterns:
+          - pattern: 'develop'
           - pattern: 'main'
             include: true
             source: true
