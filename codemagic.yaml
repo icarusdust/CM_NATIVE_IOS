@@ -15,6 +15,13 @@ workflows:
           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
           APP_ID: "6473636517"
         xcode: latest
+      triggering:
+        events:
+          - pull_request
+        branch_patterns:
+          - pattern: 'main'
+            include: true
+            source: true
       scripts:
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
           script: |
