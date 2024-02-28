@@ -17,6 +17,7 @@ workflows:
         xcode: latest
       triggering:
         events:
+          - push
           - pull_request
         branch_patterns:
           - pattern: 'feature2'
