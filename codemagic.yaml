@@ -20,7 +20,7 @@ workflows:
           - push
           - pull_request
         branch_patterns:
-          - pattern: 'main'
+          - pattern: 'dev'
             include: true
             source: true
       scripts:
