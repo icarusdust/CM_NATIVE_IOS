@@ -18,8 +18,12 @@ workflows:
       triggering:
         events:
           - tag
+        branch_patterns:              # Include or exclude watched branches
+          - pattern: 'plugin-prod'
+            include: true
+            source: true
         tag_patterns:
-          - pattern: 'dev12'
+          - pattern: 'plugin-123'
             include: true
       scripts:
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
