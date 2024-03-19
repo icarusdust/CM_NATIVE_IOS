@@ -19,7 +19,7 @@ workflows:
         events:
           - tag
         tag_patterns:
-          - pattern: 'dev12'
+          - pattern: 'dev14'
             include: true
       scripts:
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
