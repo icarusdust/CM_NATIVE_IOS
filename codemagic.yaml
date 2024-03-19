@@ -19,7 +19,7 @@ workflows:
         events:
           - tag
         branch_patterns:
-          - pattern: 'plugin-prod'
+          - pattern: 'nevercode'
             include: true
             source: false
         tag_patterns:
