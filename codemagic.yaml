@@ -68,4 +68,10 @@ workflows:
           submit_to_testflight: true
       #     beta_groups: 
       #         - mars
+        scripts:
+          - name: Test script
+            script: |
+                xcode-project run-tests \
+                  --workspace CM_NATIVE_IOS.xcworkspace \
+                  --scheme CM_NATIVE_IOS 
     
