@@ -14,4 +14,4 @@ jobs:
           app-id: 656a0292cc50c7a8cd27a1f2
           workflow-id: CODEMAGIC_WORKFLOW_ID
           branch: "main"
-          token: CODEMAGIC_TOKEN
+          token: $CODEMAGIC_TOKEN
