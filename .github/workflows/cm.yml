@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: Trigger Codemagic build
         run: echo $CODEMAGIC_TOKEN
-        uses: codemagic-ci-cd/trigger-codemagic-workflow-action@v2.0.0
-        with:
-          app-id: 656a0292cc50c7a8cd27a1f2
-          workflow-id: CODEMAGIC_WORKFLOW_ID
-          branch: "main"
-          token: $CODEMAGIC_TOKEN
+        # uses: codemagic-ci-cd/trigger-codemagic-workflow-action@v2.0.0
+        # with:
+        #   app-id: 656a0292cc50c7a8cd27a1f2
+        #   workflow-id: CODEMAGIC_WORKFLOW_ID
+        #   branch: "main"
+        #   token: $CODEMAGIC_TOKEN
