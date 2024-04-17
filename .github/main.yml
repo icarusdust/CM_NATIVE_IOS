@@ -1,12 +1,34 @@
-on: push
+name: Integration test
 
+# This workflow is triggered on pushes to the repository.
+on:
+  repository_dispatch:
+    types: [go-integration-test, java-integration-test]
+    
 jobs:
-  trigger-codemagic-build:
+  services_job:
+    name: integration-test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
+
+      - name: check out to repository
+        uses: actions/checkout@v3
+        with:
+          repository: roava/app
+          token: ${{ secrets.PAT }}
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.9'
+          channel: 'stable'
+
       - name: Trigger Codemagic build
         uses: codemagic-ci-cd/trigger-codemagic-workflow-action@v2.0.0
         with:
           app-id: 656a0292cc50c7a8cd27a1f2
           workflow-id: ios-workflow
-          token: 
+          branch: 'develop'
+          token: UjW3noRBwGnyBlOOfHhc8suwuNZmhT4XP7SaeXV-Z7c
