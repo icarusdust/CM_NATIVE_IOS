@@ -4,6 +4,7 @@ name: Integration test
 on:
   repository_dispatch:
     types: [go-integration-test, java-integration-test]
+  push
     
 jobs:
   services_job:
