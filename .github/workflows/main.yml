@@ -1,6 +1,4 @@
-on:
-  repository_dispatch:
-    types: [go-integration-test, java-integration-test]
+on: push
     
 jobs:
   services_job:
