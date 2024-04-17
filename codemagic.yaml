@@ -1,5 +1,5 @@
 workflows:
-    ios-workflow:
+    ios.workflow:
       name: ios_workflow
       instance_type: mac_mini_m2
       integrations:
