@@ -17,14 +17,7 @@ workflows:
         xcode: 15.2
       triggering:
         events:
-          - tag
-        branch_patterns:
-          - pattern: 'plugin-prod'
-            include: true
-            source: false
-        tag_patterns:
-          - pattern: '*'
-            include: true
+          - push
       scripts:
         - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
           script: |
