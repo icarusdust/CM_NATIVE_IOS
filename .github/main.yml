@@ -1,10 +1,7 @@
 name: Integration test
 
 # This workflow is triggered on pushes to the repository.
-on:
-  repository_dispatch:
-    types: [go-integration-test, java-integration-test]
-  push
+on: push
     
 jobs:
   services_job:
