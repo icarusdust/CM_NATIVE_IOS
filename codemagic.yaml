@@ -41,7 +41,7 @@ workflows:
           script: |
             xcode-project build-ipa --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
           when:
-            condition: {{$CM_BRANCH}} == 'main'
+            condition: ${{CM_BRANCH}} == 'main'
         - name: Export artifact az zip
           script: |
             cp -r $CM_BUILD_DIR/build/ios/ipa/*.ipa $CM_EXPORT_DIR/artefact
