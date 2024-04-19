@@ -53,20 +53,20 @@ workflows:
         - /tmp/xcodebuild_logs/*.log
 #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
-      publishing:
-        email:
-         recipients:
-           - nihal@nevercode.io
-        app_store_connect:
-          auth: integration
+      # publishing:
+      #   email:
+      #    recipients:
+      #      - nihal@nevercode.io
+      #   app_store_connect:
+      #     auth: integration
         
-          submit_to_testflight: true
-      #     beta_groups: 
-      #         - mars
-        scripts:
-          - name: Test script
-            script: |
-                xcode-project run-tests \
-                  --workspace CM_NATIVE_IOS.xcworkspace \
-                  --scheme CM_NATIVE_IOS 
+      #     submit_to_testflight: true
+      # #     beta_groups: 
+      # #         - mars
+      #   scripts:
+      #     - name: Test script
+      #       script: |
+      #           xcode-project run-tests \
+      #             --workspace CM_NATIVE_IOS.xcworkspace \
+      #             --scheme CM_NATIVE_IOS 
     
