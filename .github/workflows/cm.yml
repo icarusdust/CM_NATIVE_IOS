@@ -14,4 +14,4 @@ jobs:
           app-id: 656a0292cc50c7a8cd27a1f2
           workflow-id: cm.workflow
           branch: "main"
-          token: ${{ secrets.CODEMAGIC_TOKEN }}
+          token: 9kdkkd03o30
