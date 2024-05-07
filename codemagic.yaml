@@ -35,9 +35,9 @@ workflows:
         # - name: Use system default keychain
         #   script: |
         #     keychain add-certificates
-        - name: Pod
-          script: |
-            pod install
+        # - name: Pod
+        #   script: |
+        #     pod install
         - name: Set up code signing settings on Xcode project
           script: |
              xcode-project use-profiles      
