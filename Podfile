@@ -3,7 +3,6 @@ platform :ios, '17.0'
 
 target 'CM_NATIVE_IOS' do
 
-    pod 'FBSDKCoreKit', '~> 4.9'
 
   use_frameworks!
 
