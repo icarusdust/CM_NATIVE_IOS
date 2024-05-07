@@ -1,4 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS/Pods-CM_NATIVE_IOS-frameworks.sh
-${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
 ${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
