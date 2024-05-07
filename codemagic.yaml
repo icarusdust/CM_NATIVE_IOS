@@ -5,10 +5,13 @@ workflows:
       integrations:
         app_store_connect: Codemagic
       environment:
-        groups: 
-         - ios
-         - test
-         - firebase_creds
+        # groups: 
+        #  - ios
+        #  - test
+        #  - firebase_creds
+        ios_signing:
+            distribution_type: app_store
+            bundle_identifier: io.codemagic.mars.CM-NATIVE-IOS
         vars:
           XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" 
           BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
@@ -19,15 +22,15 @@ workflows:
       #   events:
       #     - push
       scripts:
-        - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
-          script: |
-            keychain initialize
-        - name: Fetch signing files
-          script: |
-            app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
-        - name: Use system default keychain
-          script: |
-            keychain add-certificates
+        # - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
+        #   script: |
+        #     keychain initialize
+        # - name: Fetch signing files
+        #   script: |
+        #     app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
+        # - name: Use system default keychain
+        #   script: |
+        #     keychain add-certificates
         - name: Set up code signing settings on Xcode project
           script: |
              xcode-project use-profiles      
