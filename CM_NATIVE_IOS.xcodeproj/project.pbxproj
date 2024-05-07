@@ -180,6 +180,7 @@
 				3913F55C2B1A36E5005E56A4 /* Sources */,
 				3913F55D2B1A36E5005E56A4 /* Frameworks */,
 				3913F55E2B1A36E5005E56A4 /* Resources */,
+				17A2A0CC07B670B9C26C10D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +218,7 @@
 				3913F5762B1A36E7005E56A4 /* Sources */,
 				3913F5772B1A36E7005E56A4 /* Frameworks */,
 				3913F5782B1A36E7005E56A4 /* Resources */,
+				5FD9EB385E07DF0B4DBB9E36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +300,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		17A2A0CC07B670B9C26C10D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS/Pods-CM_NATIVE_IOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS/Pods-CM_NATIVE_IOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS/Pods-CM_NATIVE_IOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FD9EB385E07DF0B4DBB9E36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS-CM_NATIVE_IOSUITests/Pods-CM_NATIVE_IOS-CM_NATIVE_IOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS-CM_NATIVE_IOSUITests/Pods-CM_NATIVE_IOS-CM_NATIVE_IOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CM_NATIVE_IOS-CM_NATIVE_IOSUITests/Pods-CM_NATIVE_IOS-CM_NATIVE_IOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C6D00C786742ED3898C4A325 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

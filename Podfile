@@ -2,7 +2,10 @@
 platform :ios, '9.0'
 
 target 'CM_NATIVE_IOS' do
-  # Comment the next line if you don't want to use dynamic frameworks
+
+    pod 'AFNetworking', '~> 3.0'
+    pod 'FBSDKCoreKit', '~> 4.9'
+
   use_frameworks!
 
   # Pods for CM_NATIVE_IOS
