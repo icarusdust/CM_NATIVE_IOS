@@ -1,70 +1,91 @@
 workflows:
-    ios.workflow:
-      name: ios_workflow
-      instance_type: mac_mini_m1
-      vars:
-          XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" 
-          BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
-          XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
-          APP_ID: "6473636517"
-      xcode: 15.3
-      cocoapods: default
-      cache:
-        cache_paths:
-          - $HOME/Library/Caches/CocoaPods
-      # triggering:
-      #   events:
-      #     - push
-      scripts:
-        # - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
-        #   script: |
-        #     keychain initialize
-        # - name: Fetch signing files
-        #   script: |
-        #     app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
-        # - name: Use system default keychain
-        #   script: |
-        #     keychain add-certificates
-        # - name: Pod
-        #   script: |
-        #     pod install
-        - name: Set up code signing settings on Xcode project
-          script: |
-             xcode-project use-profiles      
-        - name: Increment build number
-          script: |
-            #!/bin/sh
-            cd $CM_BUILD_DIR
-            LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
-            agvtool new-version -all $(($LATEST_BUILD_NUMBER + 4))  
-        - name: Build ipa for distribution
-          script: |
-            xcode-project build-ipa --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
-        - name: Export artifact az zip
-          script: |
-            cp -r $CM_BUILD_DIR/build/ios/ipa/*.ipa $CM_EXPORT_DIR/artefact
-      artifacts:
-        - build/ios/ipa/*.ipa
-        - $CM_EXPORT_DIR/artefact
-#         - build/ios/ipa/bullet.ipa
-        - build/ios/test/*.xml
-        - /tmp/xcodebuild_logs/*.log
-#         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-#         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
-      # publishing:
-      #   email:
-      #    recipients:
-      #      - nihal@nevercode.io
-      #   app_store_connect:
-      #     auth: integration
+  react-native:
+    name: React Native App
+    vars:
+      XCODE_WORKSPACE:
+      XCODE_SCHEME:
+    node: latest
+    xcode: latest
+  scripts:
+    - npm install
+    - | 
+      cd android
+      ./gradlew bundleRelease
+    - |
+      cd ios
+      pod install
+      xcode-project build-ipa \
+        -workspace "$CM_BUILD_DIR/ios/$XCODE_WORKSPACE" \
+        —scheme "$XCODE_SCHEME"
+
+
+# workflows:
+#     ios.workflow:
+#       name: ios_workflow
+#       instance_type: mac_mini_m1
+#       vars:
+#           XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" 
+#           BUNDLE_ID: "io.codemagic.mars.CM-NATIVE-IOS" # <-- Put your Bundle Id here.
+#           XCODE_SCHEME: "CM_NATIVE_IOS" # <-- Put the name of your scheme here.
+#           APP_ID: "6473636517"
+#       xcode: 15.3
+#       cocoapods: default
+#       cache:
+#         cache_paths:
+#           - $HOME/Library/Caches/CocoaPods
+#       # triggering:
+#       #   events:
+#       #     - push
+#       scripts:
+#         # - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
+#         #   script: |
+#         #     keychain initialize
+#         # - name: Fetch signing files
+#         #   script: |
+#         #     app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
+#         # - name: Use system default keychain
+#         #   script: |
+#         #     keychain add-certificates
+#         # - name: Pod
+#         #   script: |
+#         #     pod install
+#         - name: Set up code signing settings on Xcode project
+#           script: |
+#              xcode-project use-profiles      
+#         - name: Increment build number
+#           script: |
+#             #!/bin/sh
+#             cd $CM_BUILD_DIR
+#             LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
+#             agvtool new-version -all $(($LATEST_BUILD_NUMBER + 4))  
+#         - name: Build ipa for distribution
+#           script: |
+#             xcode-project build-ipa --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
+#         - name: Export artifact az zip
+#           script: |
+#             cp -r $CM_BUILD_DIR/build/ios/ipa/*.ipa $CM_EXPORT_DIR/artefact
+#       artifacts:
+#         - build/ios/ipa/*.ipa
+#         - $CM_EXPORT_DIR/artefact
+# #         - build/ios/ipa/bullet.ipa
+#         - build/ios/test/*.xml
+#         - /tmp/xcodebuild_logs/*.log
+# #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+# #         - /Users/builder/clone/build/ios_integ/Build/Products/ios_tests.zip
+#       # publishing:
+#       #   email:
+#       #    recipients:
+#       #      - nihal@nevercode.io
+#       #   app_store_connect:
+#       #     auth: integration
         
-      #     submit_to_testflight: true
-      # #     beta_groups: 
-      # #         - mars
-      #   scripts:
-      #     - name: Test script
-      #       script: |
-      #           xcode-project run-tests \
-      #             --workspace CM_NATIVE_IOS.xcworkspace \
-      #             --scheme CM_NATIVE_IOS 
+#       #     submit_to_testflight: true
+#       # #     beta_groups: 
+#       # #         - mars
+#       #   scripts:
+#       #     - name: Test script
+#       #       script: |
+#       #           xcode-project run-tests \
+#       #             --workspace CM_NATIVE_IOS.xcworkspace \
+#       #             --scheme CM_NATIVE_IOS 
     
