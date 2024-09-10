@@ -22,7 +22,7 @@
 workflows:
     ios.workflow:
       name: ios_workflow
-      instance_type: mac_mini_m2
+      instance_type: mac_mini_m1
       environment:
           vars:
               XCODE_WORKSPACE: "CM_NATIVE_IOS.xcworkspace" 
